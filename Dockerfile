@@ -14,11 +14,10 @@ RUN apt-get install -y \
 	python3-urllib3 \
 	python3-websocket \
 	python3-yaml \
-	virtualenv
-RUN virtualenv --system-site-packages -p python3 /usr/local
+	python3-pip
 ADD requirements.txt .
-RUN /usr/local/bin/pip install -r requirements.txt
-RUN /usr/local/bin/python -mkubernetes.client.api_client
+RUN /usr/bin/pip3 install -r requirements.txt
+RUN /usr/bin/python3 -mkubernetes.client.api_client
 WORKDIR /code
 ADD kubernetes_events_to_graylog.py .
 CMD ["./kubernetes_events_to_graylog.py"]

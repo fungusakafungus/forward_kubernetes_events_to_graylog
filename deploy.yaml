@@ -17,4 +17,5 @@ spec:
         args:
         - ./kubernetes_events_to_graylog.py
         - 10.156.42.65
+        - my_cluster
         image: kubernetes_events_to_graylog

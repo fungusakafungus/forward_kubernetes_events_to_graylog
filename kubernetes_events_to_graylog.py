@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 import graypy.handler
 graypy.handler.make_message_dict = lambda x, *args: x  # get out of my way
