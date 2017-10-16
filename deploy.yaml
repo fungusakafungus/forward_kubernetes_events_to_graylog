@@ -1,0 +1,20 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: events-to-graylog
+  namespace: kube-system
+spec:
+  selector:
+    matchLabels:
+      name: events-to-graylog
+  template:
+    metadata:
+      labels:
+        name: events-to-graylog
+    spec:
+      containers:
+      - name: events-to-graylog
+        args:
+        - ./kubernetes_events_to_graylog.py
+        - 10.156.42.65
+        image: kubernetes_events_to_graylog
